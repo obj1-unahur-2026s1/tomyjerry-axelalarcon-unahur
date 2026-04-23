@@ -2,16 +2,58 @@ import tomJerryNibbles.*
 
 describe "Grupo de test" {
 
-  test "test 1" {
-    assert.equals(100, 50+50)
+  test "La velocidad máxima inicial de Tom es 10" {
+    const tom_ = tom
+    assert.equals(10, tom_.velocidadMaxima())
   }
 
-  test "test 3" {
-    assert.that(true)
+  test "La velocidad máxima es 15.2 tras comer a Jerry" {
+    const tom_ = tom
+    const jerry_ = jerry
+    tom_.comer(jerry_)
+    assert.equals(15.2, tom_.velocidadMaxima())
   }
 
-  test "test 4" {
-    assert.notThat(false)
+  test "La velocidad máxima tras correr 24 metros es 14" {
+    const tom_ = tom
+    const jerry_ = jerry
+    tom_.comer(jerry_)
+    tom_.correr(24)
+    assert.equals(14, tom_.velocidadMaxima())
   }
 
+  test "La velocidad máxima tras comer a Nibbles es 18.7" {
+    const tom_ = tom
+    const jerry_ = jerry
+    const nibbles_ = nibbles
+    tom_.comer(jerry_)
+    tom_.correr(24)
+    tom_.comer(nibbles_)
+    assert.equals(18.7, tom_.velocidadMaxima())
+  }
+
+  test "La velocidad máxima tras comer a Jerry luego de su cumpleaños es 25.9" {
+    const tom_ = tom
+    const jerry_ = jerry
+    const nibbles_ = nibbles
+    tom_.comer(jerry_)
+    tom_.correr(24)
+    tom_.comer(nibbles_)
+    jerry_.cumplirAños()
+    tom_.comer(jerry_)
+    assert.equals(25.9, tom_.velocidadMaxima())
+  }
+
+  test "La velocidad máxima tras correr 38 metros es 24" {
+    const tom_ = tom
+    const jerry_ = jerry
+    const nibbles_ = nibbles
+    tom_.comer(jerry_)
+    tom_.correr(24)
+    tom_.comer(nibbles_)
+    jerry_.cumplirAños()
+    tom_.comer(jerry_)
+    tom_.correr(38)
+    assert.equals(24, tom_.velocidadMaxima())
+  }
 }
